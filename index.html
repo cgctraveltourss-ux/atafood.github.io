@@ -3,270 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ata Food | Catering & Restaurant Services</title>
+    <title>ATA FOOD | Restaurant & Catering Services Saudi Arabia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #c82333;
-            --dark: #212529;
-            --light: #f8f9fa;
+            --brand-red: #d90429;
+            --brand-yellow: #ffb703;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-light: #f8f9fa;
+            --text-muted: #ad141e;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: var(--light);
-            color: var(--dark);
+            transition: all 0.25s ease-in-out;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
             line-height: 1.6;
         }
-        .lang-switch {
+
+        /* Fixed Navigation Header */
+        nav {
             position: fixed;
-            top: 15px;
-            right: 15px;
+            top: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
             z-index: 1000;
+            border-bottom: 2px solid var(--brand-red);
         }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--brand-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .lang-btn {
-            background-color: #000;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            font-weight: bold;
-            border-radius: 20px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-        header {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80') center/cover;
+            background: var(--brand-red);
             color: white;
-            text-align: center;
-            padding: 80px 20px 60px 20px;
+            border: 2px solid var(--brand-yellow);
+            padding: 8px 18px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(217, 4, 41, 0.5);
         }
-        header h1 {
-            font-size: 2.8rem;
+
+        .lang-btn:hover {
+            background: var(--brand-yellow);
+            color: black;
+            border-color: var(--brand-red);
+        }
+
+        /* Hero Banner with Storefront Image */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(18,18,18,1) 100%), url('logo.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--brand-yellow);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
             margin-bottom: 10px;
         }
-        header p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 750px;
+            color: #efefef;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
-        .badge {
-            background-color: var(--primary);
+
+        .badge-coverage {
+            background-color: var(--brand-red);
             color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            border: 1px solid var(--brand-yellow);
             display: inline-block;
-            padding: 5px 15px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            margin-top: 15px;
         }
+
+        /* Content Container */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
-        h2 {
+
+        .section-title {
             text-align: center;
-            color: var(--primary);
-            margin-bottom: 30px;
-            font-size: 2rem;
+            font-size: 2.2rem;
+            color: var(--brand-yellow);
+            margin-bottom: 40px;
+            position: relative;
         }
-        .menu-grid {
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--brand-red);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Menu Grid with Food Cards */
+        .food-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
-        .card {
-            background: white;
-            border-radius: 8px;
+
+        .food-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-yellow);
+        }
+
+        .food-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .food-info {
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--primary);
         }
-        body[dir="rtl"] .card {
-            border-left: none;
-            border-right: 4px solid var(--primary);
+
+        .food-info h3 {
+            color: var(--brand-yellow);
+            margin-bottom: 10px;
         }
-        .card h3 {
-            margin-top: 0;
-            color: var(--dark);
+
+        .food-info p {
+            color: #ccc;
+            font-size: 0.95rem;
         }
-        .contact-box {
-            background: #fff;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            padding: 30px;
+
+        /* Call To Action & Contact */
+        .contact-section {
+            background: linear-gradient(135deg, #1f1f1f 0%, #111111 100%);
+            border: 2px solid var(--brand-red);
+            border-radius: 15px;
+            padding: 40px 20px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 60px;
         }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
         .btn-call {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 10px;
+            background-color: var(--brand-red);
+            border: 1px solid var(--brand-yellow);
         }
-        .btn-whatsapp {
-            display: inline-block;
-            background-color: #25D366;
+
+        .btn-wa {
+            background-color: #25d366;
             color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 10px;
         }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: var(--dark);
-            color: white;
-            margin-top: 40px;
+            padding: 25px;
+            background: #0a0a0a;
+            color: #777;
+            border-top: 1px solid #222;
         }
     </style>
 </head>
 <body dir="ltr">
 
-    <!-- Language Toggle Button -->
-    <div class="lang-switch">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">ATA FOOD</div>
         <button class="lang-btn" onclick="toggleLanguage()">العربية</button>
-    </div>
+    </nav>
 
-    <!-- Header Section -->
-    <header>
-        <h1 id="title">Ata Food & Catering</h1>
-        <p id="subtitle">High-quality everyday meals and bulk commercial catering services for all nationalities, tailored to corporate teams, camp workforce, and individual orders.</p>
-        <span class="badge" id="coverage">📍 Available All Over Saudi Arabia</span>
-    </header>
+    <!-- Hero Header with Your Store Banner -->
+    <section class="hero">
+        <h1 id="hero-title">ATA FOOD</h1>
+        <p id="hero-subtitle">High-quality everyday meals and bulk commercial catering services tailored to corporate teams, workforce camps, and individual dining across Saudi Arabia.</p>
+        <div class="badge-coverage" id="coverage-badge">📍 Available All Over Saudi Arabia</div>
+    </section>
 
+    <!-- Main Content -->
     <div class="container">
-        
-        <!-- About Section -->
-        <h2 id="about-heading">Commercial Catering & Restaurant</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto;" id="about-text">
-            We specialize in daily menu options suited for diverse multinational workforces including South Asian, Arab, and Western tastes. From daily restaurant meals to full-scale camp catering projects across all regions in Saudi Arabia.
-        </p>
 
-        <!-- Menu Section -->
-        <h2 id="menu-heading">Our Everyday Menu</h2>
-        <div class="menu-grid">
-            
-            <div class="card">
-                <h3 class="m1-title">Chicken Kabsa & Bukhari</h3>
-                <p class="m1-desc">Traditional aromatic long-grain rice served with seasoned roasted or steamed chicken, fresh tomato salsa (Daqqus), and salad.</p>
+        <!-- Services / Menu Section -->
+        <h2 class="section-title" id="menu-title">Our Food & Catering Services</h2>
+
+        <div class="food-grid">
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1633964913295-ceb43826e7c9?auto=format&fit=crop&w=600&q=80" alt="Bukhari Rice" class="food-img">
+                <div class="food-info">
+                    <h3 class="m1-t">Chicken Kabsa & Bukhari</h3>
+                    <p class="m1-d">Traditional aromatic rice served with roasted chicken, fresh spicy salsa (Daqqus), and green salad.</p>
+                </div>
             </div>
 
-            <div class="card">
-                <h3 class="m2-title">South Asian Meals (Biryani / Curry)</h3>
-                <p class="m2-desc">Freshly cooked chicken or mutton curry served with hot parathas, basmati rice, seasoned lentils (Dal), and raita.</p>
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80" alt="Biryani & Curry" class="food-img">
+                <div class="food-info">
+                    <h3 class="m2-t">South Asian Meals (Biryani & Curry)</h3>
+                    <p class="m2-d">Freshly cooked chicken/mutton curry, biryani rice, hot parathas, lentils (Dal), and salad for all tastes.</p>
+                </div>
             </div>
 
-            <div class="card">
-                <h3 class="m3-title">Fresh Grilled Meats & Kebabs</h3>
-                <p class="m3-desc">Mixed skewers of seasoned beef kebabs, chicken shish tawook, grilled vegetables, garlic sauce, and fresh khubz bread.</p>
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Fresh Grills" class="food-img">
+                <div class="food-info">
+                    <h3 class="m3-t">Fresh BBQ & Mix Grills</h3>
+                    <p class="m3-d">Seasoned beef kebabs, shish tawook skewers, grilled tomatoes, garlic sauce, and hot khubz bread.</p>
+                </div>
             </div>
 
-            <div class="card">
-                <h3 class="m4-title">Daily Camp / Workforce Catering</h3>
-                <p class="m4-desc">Structured 3-meal breakfast, lunch, and dinner contracts designed specifically for industrial site crews and corporate project teams.</p>
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Commercial Catering" class="food-img">
+                <div class="food-info">
+                    <h3 class="m4-t">Workforce & Camp Catering</h3>
+                    <p class="m4-d">Structured 3-meal (Breakfast, Lunch, Dinner) contract catering for corporate projects and industrial site crews across KSA.</p>
+                </div>
             </div>
 
         </div>
 
-        <!-- Contact Section -->
-        <div class="contact-box">
-            <h2 id="contact-heading" style="margin-top:0;">Order or Request a Catering Quote</h2>
-            <p id="contact-desc">Contact us directly for restaurant delivery, bulk orders, or long-term contract catering inquiries anywhere in Saudi Arabia.</p>
+        <!-- Contact CTA -->
+        <div class="contact-section">
+            <h2 id="contact-title" style="color: var(--brand-yellow);">Order Now or Get a Catering Quote</h2>
+            <p id="contact-desc" style="color: #ccc; margin-top: 10px;">Reach out directly for restaurant orders, event delivery, or corporate catering contracts anywhere in Saudi Arabia.</p>
             
-            <!-- Replace Phone Number below with your real number -->
-            <a href="tel:+966000000000" class="btn-call" id="btn-call-text">📞 Call Us: +966 50 000 0000</a>
-            <a href="https://wa.me/966000000000" class="btn-whatsapp" id="btn-wa-text">💬 WhatsApp Us</a>
+            <div class="action-buttons">
+                <a href="tel:+966555548330" class="btn btn-call" id="btn-call-label">
+                    <i class="fa-solid fa-phone"></i> Call 055 554 8330
+                </a>
+                <a href="https://wa.me/966555548330" class="btn btn-wa" id="btn-wa-label">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
         </div>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Ata Food & Catering. All rights reserved.</p>
+        <p>&copy; 2026 ATA FOOD. All rights reserved.</p>
     </footer>
 
-    <!-- Interactive Multilingual Logic -->
+    <!-- Multilingual Script -->
     <script>
         let currentLang = 'en';
 
-        const translations = {
+        const content = {
             en: {
                 btn: "العربية",
                 dir: "ltr",
-                title: "Ata Food & Catering",
-                subtitle: "High-quality everyday meals and bulk commercial catering services for all nationalities, tailored to corporate teams, camp workforce, and individual orders.",
+                heroTitle: "ATA FOOD",
+                heroSubtitle: "High-quality everyday meals and bulk commercial catering services tailored to corporate teams, workforce camps, and individual dining across Saudi Arabia.",
                 coverage: "📍 Available All Over Saudi Arabia",
-                aboutHeading: "Commercial Catering & Restaurant",
-                aboutText: "We specialize in daily menu options suited for diverse multinational workforces including South Asian, Arab, and Western tastes. From daily restaurant meals to full-scale camp catering projects across all regions in Saudi Arabia.",
-                menuHeading: "Our Everyday Menu",
-                m1Title: "Chicken Kabsa & Bukhari",
-                m1Desc: "Traditional aromatic long-grain rice served with seasoned roasted or steamed chicken, fresh tomato salsa (Daqqus), and salad.",
-                m2Title: "South Asian Meals (Biryani / Curry)",
-                m2Desc: "Freshly cooked chicken or mutton curry served with hot parathas, basmati rice, seasoned lentils (Dal), and raita.",
-                m3Title: "Fresh Grilled Meats & Kebabs",
-                m3Desc: "Mixed skewers of seasoned beef kebabs, chicken shish tawook, grilled vegetables, garlic sauce, and fresh khubz bread.",
-                m4Title: "Daily Camp / Workforce Catering",
-                m4Desc: "Structured 3-meal breakfast, lunch, and dinner contracts designed specifically for industrial site crews and corporate project teams.",
-                contactHeading: "Order or Request a Catering Quote",
-                contactDesc: "Contact us directly for restaurant delivery, bulk orders, or long-term contract catering inquiries anywhere in Saudi Arabia.",
-                btnCall: "📞 Call Us: +966 50 000 0000",
-                btnWa: "💬 WhatsApp Us"
+                menuTitle: "Our Food & Catering Services",
+                m1t: "Chicken Kabsa & Bukhari",
+                m1d: "Traditional aromatic rice served with roasted chicken, fresh spicy salsa (Daqqus), and green salad.",
+                m2t: "South Asian Meals (Biryani & Curry)",
+                m2d: "Freshly cooked chicken/mutton curry, biryani rice, hot parathas, lentils (Dal), and salad for all tastes.",
+                m3t: "Fresh BBQ & Mix Grills",
+                m3d: "Seasoned beef kebabs, shish tawook skewers, grilled tomatoes, garlic sauce, and hot khubz bread.",
+                m4t: "Workforce & Camp Catering",
+                m4d: "Structured 3-meal (Breakfast, Lunch, Dinner) contract catering for corporate projects and industrial site crews across KSA.",
+                contactTitle: "Order Now or Get a Catering Quote",
+                contactDesc: "Reach out directly for restaurant orders, event delivery, or corporate catering contracts anywhere in Saudi Arabia.",
+                btnCall: "Call 055 554 8330",
+                btnWa: "WhatsApp Us"
             },
             ar: {
                 btn: "English",
                 dir: "rtl",
-                title: "مطاعم وإعاشة عطاء",
-                subtitle: "وجبات يومية عالية الجودة وخدمات إعاشة وتقديم طعام لجميع الجنسيات، مخصصة للشركات، مواقع العمل، والطلبات الفردية.",
+                heroTitle: "مطاعم وإعاشة عطاء",
+                heroSubtitle: "تقديم الوجبات اليومية وخدمات الإعاشة والتموين للشركات ومواقع العمل والطلبات الفردية في جميع أنحاء المملكة العربية السعودية.",
                 coverage: "📍 خدماتنا متوفرة في جميع أنحاء المملكة العربية السعودية",
-                aboutHeading: "خدمات المطاعم والإعاشة للشركات",
-                aboutText: "نحن متخصصون في تقديم وجبات يومية تناسب مختلف الجنسيات والفرائق مثل الوجبات العربية، الآسيوية، وغيرها. نوفر وجبات المطاعم اليومية بالإضافة إلى عقود إعاشة كاملة لمواقع العمل والمشاريع في جميع مناطق المملكة.",
-                menuHeading: "قائمة الوجبات اليومية",
-                m1Title: "كبسة وبخاري دجاج",
-                m1Desc: "أرز بخاري وكبسة تقليدي يقدم مع دجاج محمر أو مضغوط، سلطة حارة (دقوس)، وسلطة خضراء.",
-                m2Title: "وجبات آسيوية (برياني / إدام)",
-                m2Desc: "إدام دجاج أو لحم طازج يقدم مع خبز براتا ساخن، أرز بسمتي، وعدس (دال).",
-                m3Title: "مشويات وطازجة وكباب",
-                m3Desc: "أسياخ مشكلة من كباب اللحم، شيش طاووق الدجاج، خضار مشوية، ثومية، وخبز طازج.",
-                m4Title: "إعاشة التموين للعمال والمشاريع",
-                m4Desc: "عقود إعاشة يومية شاملة 3 وجبات (إفطار، غداء، عشاء) مصممة لمشاريع الشركات والعمالة في المواقع.",
-                contactHeading: "للطلب أو طلب عرض سعر للإعاشة",
-                contactDesc: "تواصل معنا مباشرة لطلبات المطعم أو للتجهيز والإعاشة للشركات في أي منطقة داخل المملكة العربية السعودية.",
-                btnCall: "📞 اتصل بنا: 0000 000 50 966+",
-                btnWa: "💬 تواصل عبر الواتساب"
+                menuTitle: "قائمة الطعام وخدمات الإعاشة",
+                m1t: "كبسة وبخاري دجاج",
+                m1d: "أرز بخاري وكبسة سعودية تقليدية مع دجاج محمر، سلطة حارة (دقوس)، وسلطة خضراء طازجة.",
+                m2t: "وجبات آسيوية (برياني وإدام)",
+                m2d: "إدام دجاج ولحم، برياني، خبز براتا، وعدس (دال) لتلبية كافة أذواق العمالة والموظفين.",
+                m3t: "مشويات وشيش طاووق",
+                m3d: "أسياخ كباب لحم وشيش طاووق دجاج، طماطم مشوية، ثومية، وخبز ساخن طازج.",
+                m4t: "إعاشة عمالة ومشاريع الشركات",
+                m4d: "عقود تموين وإعاشة شاملة 3 وجبات يومية لفرق العمل ومشاريع الشركات في جميع المناطق.",
+                contactTitle: "للطلب أو طلب عرض سعر للإعاشة",
+                contactDesc: "تواصل معنا مباشرة للطلبات أو لتجهيز عقود الإعاشة والتموين في أي مدينة بالمملكة.",
+                btnCall: "اتصل بنا 8330 554 055",
+                btnWa: "تواصل عبر الواتساب"
             }
         };
 
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'ar' : 'en';
-            const t = translations[currentLang];
+            const data = content[currentLang];
 
-            document.body.setAttribute('dir', t.dir);
-            document.querySelector('.lang-btn').innerText = t.btn;
-            document.getElementById('title').innerText = t.title;
-            document.getElementById('subtitle').innerText = t.subtitle;
-            document.getElementById('coverage').innerText = t.coverage;
-            document.getElementById('about-heading').innerText = t.aboutHeading;
-            document.getElementById('about-text').innerText = t.aboutText;
-            document.getElementById('menu-heading').innerText = t.menuHeading;
-            
-            document.querySelector('.m1-title').innerText = t.m1Title;
-            document.querySelector('.m1-desc').innerText = t.m1Desc;
-            document.querySelector('.m2-title').innerText = t.m2Title;
-            document.querySelector('.m2-desc').innerText = t.m2Desc;
-            document.querySelector('.m3-title').innerText = t.m3Title;
-            document.querySelector('.m3-desc').innerText = t.m3Desc;
-            document.querySelector('.m4-title').innerText = t.m4Title;
-            document.querySelector('.m4-desc').innerText = t.m4Desc;
+            document.body.setAttribute('dir', data.dir);
+            document.querySelector('.lang-btn').innerText = data.btn;
+            document.getElementById('hero-title').innerText = data.heroTitle;
+            document.getElementById('hero-subtitle').innerText = data.heroSubtitle;
+            document.getElementById('coverage-badge').innerText = data.coverage;
+            document.getElementById('menu-title').innerText = data.menuTitle;
 
-            document.getElementById('contact-heading').innerText = t.contactHeading;
-            document.getElementById('contact-desc').innerText = t.contactDesc;
-            document.getElementById('btn-call-text').innerText = t.btnCall;
-            document.getElementById('btn-wa-text').innerText = t.btnWa;
+            document.querySelector('.m1-t').innerText = data.m1t;
+            document.querySelector('.m1-d').innerText = data.m1d;
+            document.querySelector('.m2-t').innerText = data.m2t;
+            document.querySelector('.m2-d').innerText = data.m2d;
+            document.querySelector('.m3-t').innerText = data.m3t;
+            document.querySelector('.m3-d').innerText = data.m3d;
+            document.querySelector('.m4-t').innerText = data.m4t;
+            document.querySelector('.m4-d').innerText = data.m4d;
+
+            document.getElementById('contact-title').innerText = data.contactTitle;
+            document.getElementById('contact-desc').innerText = data.contactDesc;
+            document.getElementById('btn-call-label').innerHTML = `<i class="fa-solid fa-phone"></i> ${data.btnCall}`;
+            document.getElementById('btn-wa-label').innerHTML = `<i class="fa-brands fa-whatsapp"></i> ${data.btnWa}`;
         }
     </script>
 </body>

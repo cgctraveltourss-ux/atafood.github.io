@@ -7,7 +7,7 @@
     <style>
         :root {
             --primary: #c0392b;
-            --dark: #2c3e50;
+            --dark: #1a252f;
             --light: #f8f9fa;
             --accent: #f1c40f;
             --gray: #7f8c8d;
@@ -17,156 +17,268 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
         body {
             color: var(--dark);
             line-height: 1.6;
             background-color: #fff;
         }
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+        /* Top Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 37, 47, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             color: white;
-            padding: 100px 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .nav-logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Cinematic Header with Video/Image feel */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+        .header-content {
+            max-width: 900px;
+            animation: fadeInDown 1.2s ease-in-out;
+        }
+        header img.hero-logo {
+            max-height: 110px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
         }
         header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
             color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         header p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            color: #ecf0f1;
         }
         .cta-btn {
             background-color: var(--primary);
             color: white;
-            padding: 12px 30px;
-            font-size: 1rem;
+            padding: 14px 35px;
+            font-size: 1.1rem;
             font-weight: bold;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             text-decoration: none;
             display: inline-block;
-            transition: background 0.3s;
-            margin: 5px;
+            transition: transform 0.3s, background 0.3s;
+            margin: 8px;
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.4);
         }
         .cta-btn:hover {
             background-color: #a93226;
+            transform: translateY(-3px);
         }
         .cta-whatsapp {
             background-color: #25d366;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
         .cta-whatsapp:hover {
             background-color: #1ebe5d;
+            transform: translateY(-3px);
         }
+
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
         section {
-            padding: 60px 0;
-            border-bottom: 1px solid #eee;
+            padding: 80px 0;
+            border-bottom: 1px solid #eaeaea;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--dark);
         }
         .section-subtitle {
             text-align: center;
             color: var(--gray);
-            margin-bottom: 40px;
-            font-size: 1.1rem;
+            margin-bottom: 50px;
+            font-size: 1.2rem;
         }
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
         .card {
             background: var(--light);
-            padding: 30px;
-            border-radius: 8px;
-            border-top: 4px solid var(--primary);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border-top: 5px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
         }
         .card h3 {
             margin-bottom: 15px;
             color: var(--dark);
+            font-size: 1.5rem;
         }
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
+
+        /* Auto-Scrolling Client Logo Slider */
+        .slider-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+            padding: 20px 0;
         }
-        .client-badge {
+        .slider-track {
+            display: inline-block;
+            animation: scrollLogos 30s linear infinite;
+        }
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+        .client-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
             background: var(--light);
-            padding: 25px 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            color: var(--dark);
+            padding: 15px 30px;
+            margin: 0 15px;
+            border-radius: 50px;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            transition: transform 0.2s;
+            font-weight: 600;
+            color: var(--dark);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
-        .client-badge:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
+        @keyframes scrollLogos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
+
         .contact-box {
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--dark), #2c3e50);
             color: white;
-            padding: 40px;
-            border-radius: 8px;
+            padding: 60px 40px;
+            border-radius: 15px;
             text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
         .contact-box a {
             color: var(--accent);
             text-decoration: none;
         }
         footer {
-            background: #1a252f;
+            background: #111;
             color: white;
             text-align: center;
-            padding: 30px 20px;
-            font-size: 0.9rem;
+            padding: 40px 20px;
+            font-size: 0.95rem;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
+    <!-- TOP NAVIGATION BAR -->
+    <nav>
+        <div class="nav-logo">
+            <!-- Replace 'logo.jpg' with your actual logo image filename in GitHub if needed -->
+            <img src="logo.jpg" alt="Ata Food Logo" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=100&q=80'">
+            <span>ATA FOOD & CATERING</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#goals">Goals</a>
+            <a href="#clients">Clients</a>
+            <a href="#contact" style="background: var(--primary); padding: 8px 18px; border-radius: 20px;">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- CINEMATIC HEADER -->
     <header>
-        <h1>Ata Food & Catering</h1>
-        <p>Providing exceptional, industrial-scale corporate catering, tier-based workforce menu structuring, and premium food supply solutions across the Kingdom of Saudi Arabia.</p>
-        <div>
-            <a href="mailto:sales@atafood.de5.net" class="cta-btn">Email Inquiry</a>
-            <a href="https://wa.me/966555548330" target="_blank" class="cta-btn cta-whatsapp">WhatsApp Us</a>
+        <div class="header-content">
+            <img src="logo.jpg" alt="Ata Food Logo" class="hero-logo" onerror="this.style.display='none'">
+            <h1>Ata Food & Catering</h1>
+            <p>Industrial-scale corporate catering, tier-based workforce menu structuring, and premium food supply solutions across the Kingdom of Saudi Arabia.</p>
+            <div>
+                <a href="mailto:sales@atafood.de5.net" class="cta-btn">Email Inquiry</a>
+                <a href="https://wa.me/966555548330" target="_blank" class="cta-btn cta-whatsapp">WhatsApp Us</a>
+            </div>
         </div>
     </header>
 
     <div class="container">
         
         <!-- ABOUT US -->
-        <section>
+        <section id="about">
             <h2>About Ata Food & Catering</h2>
             <p class="section-subtitle">Delivering reliability, safety, and delicious nutrition to workforce projects and corporate hubs across KSA.</p>
-            <p style="margin-bottom: 20px;">
+            <p style="margin-bottom: 20px; font-size: 1.1rem;">
                 Ata Food & Catering is a premier commercial food service and catering contractor operating within Saudi Arabia, with established logistical reach spanning Riyadh, Al Majma'ah, and Sudair Industrial City. We specialize in managing complex commercial catering workflows, tier-based workforce menu structuring, contract logistics, and customized food supply proposals for multinational project teams, industrial complexes, and corporate institutions.
             </p>
-            <p>
+            <p style="font-size: 1.1rem;">
                 Our commitment revolves around uncompromising food safety standards, punctual meal delivery schedules, and nutritionally balanced menus tailored to diverse workforce requirements. From large industrial camps to executive corporate dining, we bring excellence to every plate.
             </p>
         </section>
 
         <!-- OUR GOALS & MISSION -->
-        <section>
+        <section id="goals">
             <h2>Our Core Goals & Philosophy</h2>
             <p class="section-subtitle">What drives our operational standard every single day.</p>
             <div class="grid-3">
@@ -185,38 +297,51 @@
             </div>
         </section>
 
-        <!-- OUR VALUED CLIENTS -->
-        <section>
+        <!-- AUTO-SCROLLING CLIENT LOGO SLIDER -->
+        <section id="clients">
             <h2>Trusted by Major Enterprises in KSA</h2>
-            <p class="section-subtitle">We proudly partner with leading industrial giants, contractors, and project teams operating across the Kingdom.</p>
+            <p class="section-subtitle">Proudly partnering with leading industrial giants, energy leaders, and project contractors across the Kingdom.</p>
             
-            <div class="clients-grid">
-                <div class="client-badge">Saudi Aramco</div>
-                <div class="client-badge">SABIC</div>
-                <div class="client-badge">NEOM Project Contractors</div>
-                <div class="client-badge">Saudi Electricity Company</div>
-                <div class="client-badge">Ma'aden (Saudi Arabian Mining Co.)</div>
-                <div class="client-badge">Schlumberger KSA</div>
-                <div class="client-badge">Halliburton Saudi Arabia</div>
-                <div class="client-badge">Baker Hughes KSA</div>
-                <div class="client-badge">Almarai Logistics</div>
-                <div class="client-badge">Nesma & Partners</div>
-                <div class="client-badge">Saipem Contracting</div>
-                <div class="client-badge">Al-Arrab Contracting Co.</div>
-                <div class="client-badge">Sinopec Engineering KSA</div>
-                <div class="client-badge">Samsung Engineering</div>
-                <div class="client-badge">JGC Saudi Arabia</div>
+            <div class="slider-container">
+                <div class="slider-track">
+                    <!-- First Set of Logos -->
+                    <div class="client-pill">🟢 Saudi Aramco</div>
+                    <div class="client-pill">🔵 SABIC</div>
+                    <div class="client-pill">⚪ NEOM Projects</div>
+                    <div class="client-pill">🟡 Saudi Electricity Co.</div>
+                    <div class="client-pill">🟤 Ma'aden Mining</div>
+                    <div class="client-pill">🔴 Schlumberger KSA</div>
+                    <div class="client-pill">⚫ Halliburton</div>
+                    <div class="client-pill">🔵 Baker Hughes</div>
+                    <div class="client-pill">🟢 Almarai Logistics</div>
+                    <div class="client-pill">🔴 Nesma & Partners</div>
+                    <div class="client-pill">🔵 Saipem Contracting</div>
+                    <div class="client-pill">🟠 Sinopec Engineering</div>
+                    <!-- Duplicate Set for Seamless Infinite Scrolling -->
+                    <div class="client-pill">🟢 Saudi Aramco</div>
+                    <div class="client-pill">🔵 SABIC</div>
+                    <div class="client-pill">⚪ NEOM Projects</div>
+                    <div class="client-pill">🟡 Saudi Electricity Co.</div>
+                    <div class="client-pill">🟤 Ma'aden Mining</div>
+                    <div class="client-pill">🔴 Schlumberger KSA</div>
+                    <div class="client-pill">⚫ Halliburton</div>
+                    <div class="client-pill">🔵 Baker Hughes</div>
+                    <div class="client-pill">🟢 Almarai Logistics</div>
+                    <div class="client-pill">🔴 Nesma & Partners</div>
+                    <div class="client-pill">🔵 Saipem Contracting</div>
+                    <div class="client-pill">🟠 Sinopec Engineering</div>
+                </div>
             </div>
         </section>
 
         <!-- CONTACT US SECTION -->
-        <section style="border-bottom: none;">
+        <section id="contact" style="border-bottom: none;">
             <div class="contact-box">
                 <h2 style="color: white; margin-bottom: 15px;">Ready to Discuss Your Catering Project?</h2>
-                <p style="margin-bottom: 25px;">Get in touch with our sales and accounts coordination team for custom proposals, menu samples, and contract pricing.</p>
-                <p style="margin-bottom: 10px;"><strong>Sales Inquiry:</strong> <a href="mailto:sales@atafood.de5.net">sales@atafood.de5.net</a></p>
-                <p style="margin-bottom: 10px;"><strong>Accounts & Finance:</strong> <a href="mailto:accounts@atafood.de5.net">accounts@atafood.de5.net</a></p>
-                <p style="margin-bottom: 25px;"><strong>Direct Phone / WhatsApp:</strong> <a href="https://wa.me/966555548330" target="_blank">+966 55 554 8330</a></p>
+                <p style="margin-bottom: 25px; font-size: 1.1rem;">Get in touch with our sales and accounts coordination team for custom proposals, menu samples, and contract pricing.</p>
+                <p style="margin-bottom: 12px; font-size: 1.1rem;"><strong>Sales Inquiry:</strong> <a href="mailto:sales@atafood.de5.net">sales@atafood.de5.net</a></p>
+                <p style="margin-bottom: 12px; font-size: 1.1rem;"><strong>Accounts & Finance:</strong> <a href="mailto:accounts@atafood.de5.net">accounts@atafood.de5.net</a></p>
+                <p style="margin-bottom: 30px; font-size: 1.1rem;"><strong>Direct Phone / WhatsApp:</strong> <a href="https://wa.me/966555548330" target="_blank">+966 55 554 8330</a></p>
                 <div>
                     <a href="mailto:sales@atafood.de5.net" class="cta-btn">Send Email Now</a>
                     <a href="https://wa.me/966555548330" target="_blank" class="cta-btn cta-whatsapp">Chat on WhatsApp</a>
@@ -229,6 +354,21 @@
     <footer>
         <p>&copy; 2026 Ata Food & Catering. All rights reserved. | Serving Industrial & Corporate KSA.</p>
     </footer>
+
+    <!-- Smooth Scroll Animation Script -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>

@@ -1576,15 +1576,39 @@
             e.preventDefault();
             const name = document.getElementById('rfpName').value.trim();
             const phone = document.getElementById('rfpPhone').value.trim();
-            const type = document.getElementById('rfpType').value;
-            const headcount = document.getElementById('rfpHeadcount').value.trim() || 'Not specified';
-            const location = document.getElementById('rfpLocation').value.trim() || 'Not specified';
+            const typeSelect = document.getElementById('rfpType');
+            const typeText = typeSelect.options[typeSelect.selectedIndex].text;
+            const headcount = document.getElementById('rfpHeadcount').value.trim() || (currentLang === 'ar' ? 'غير محدد' : 'Not specified');
+            const location = document.getElementById('rfpLocation').value.trim() || (currentLang === 'ar' ? 'غير محدد' : 'Not specified');
 
-            const message = currentLang === 'ar'
-                ? `*طلب عرض إعاشة جديد - شركة عطا للأغذية*%0A%0A*الشركة / الاسم:* ${encodeURIComponent(name)}%0A*الهاتف:* ${encodeURIComponent(phone)}%0A*نوع الخدمة:* ${encodeURIComponent(type)}%0A*العدد اليومي التقريبي:* ${encodeURIComponent(headcount)}%0A*الموقع:* ${encodeURIComponent(location)}`
-                : `*New Catering RFP - ATA FOOD & CATERING*%0A%0A*Company / Contact:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Service:* ${encodeURIComponent(type)}%0A*Daily Headcount:* ${encodeURIComponent(headcount)}%0A*Location:* ${encodeURIComponent(location)}`;
+            let rawMessage = '';
+            if (currentLang === 'ar') {
+                rawMessage =
+                    "📋 *طلب عرض أسعار إعاشة جديد*\n" +
+                    "━━━━━━━━━━━━━━━━━━━━\n" +
+                    "🏢 *الشركة / المسؤول:* " + name + "\n" +
+                    "📱 *رقم التواصل:* " + phone + "\n" +
+                    "🍽️ *نوع الخدمة المطلوبة:* " + typeText + "\n" +
+                    "👥 *العدد اليومي التقريبي:* " + headcount + "\n" +
+                    "📍 *موقع المشروع:* " + location + "\n" +
+                    "━━━━━━━━━━━━━━━━━━━━\n" +
+                    "_مرسل عبر الموقع الرسمي لشركة عطا للأغذية_";
+            } else {
+                rawMessage =
+                    "📋 *NEW CATERING RFP / QUOTE REQUEST*\n" +
+                    "━━━━━━━━━━━━━━━━━━━━\n" +
+                    "🏢 *Company / Contact:* " + name + "\n" +
+                    "📱 *Phone / Mobile:* " + phone + "\n" +
+                    "🍽️ *Service Required:* " + typeText + "\n" +
+                    "👥 *Approx. Daily Headcount:* " + headcount + "\n" +
+                    "📍 *Project Location:* " + location + "\n" +
+                    "━━━━━━━━━━━━━━━━━━━━\n" +
+                    "_Sent via official ATA FOOD & CATERING portal_";
+            }
 
-            window.open(`https://wa.me/966555548330?text=${message}`, '_blank');
+            const encodedMessage = encodeURIComponent(rawMessage);
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=966555548330&text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
         }
 
         // Scroll Reveal Observer

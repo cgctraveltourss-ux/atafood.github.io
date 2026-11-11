@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ata Food & Catering | Premier Corporate Catering Services in KSA</title>
+    <title>ATA FOOD & CATERING | Premier Corporate Catering Services in KSA</title>
     <style>
         :root {
             --primary: #c0392b;
@@ -46,9 +46,10 @@
             color: white;
             font-weight: bold;
             font-size: 1.2rem;
+            letter-spacing: 1px;
         }
         .nav-logo img {
-            height: 45px;
+            height: 40px;
             width: auto;
             object-fit: contain;
         }
@@ -63,7 +64,7 @@
             color: var(--accent);
         }
 
-        /* Cinematic Header with Video/Image feel */
+        /* Cinematic Header */
         header {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
@@ -80,17 +81,13 @@
             max-width: 900px;
             animation: fadeInDown 1.2s ease-in-out;
         }
-        header img.hero-logo {
-            max-height: 110px;
-            margin-bottom: 25px;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
-        }
         header h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             margin-bottom: 20px;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-weight: 800;
         }
         header p {
             font-size: 1.3rem;
@@ -145,6 +142,8 @@
             text-align: center;
             margin-bottom: 15px;
             color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         .section-subtitle {
             text-align: center;
@@ -174,33 +173,49 @@
             font-size: 1.5rem;
         }
 
-        /* Auto-Scrolling Client Logo Slider */
+        /* Auto-Scrolling Client Logo Slider with Actual Logos */
         .slider-container {
             overflow: hidden;
             white-space: nowrap;
             position: relative;
             width: 100%;
-            padding: 20px 0;
+            padding: 30px 0;
+            background: #fdfdfd;
+            border-radius: 12px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.03);
         }
         .slider-track {
             display: inline-block;
-            animation: scrollLogos 30s linear infinite;
+            animation: scrollLogos 35s linear infinite;
         }
         .slider-track:hover {
             animation-play-state: paused;
         }
-        .client-pill {
+        .client-logo-card {
             display: inline-flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
-            background: var(--light);
-            padding: 15px 30px;
-            margin: 0 15px;
-            border-radius: 50px;
+            justify-content: center;
+            background: white;
+            padding: 20px 30px;
+            margin: 0 20px;
+            border-radius: 12px;
             border: 1px solid #e2e8f0;
-            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            width: 200px;
+            height: 110px;
+            vertical-align: middle;
+        }
+        .client-logo-card img {
+            max-height: 45px;
+            max-width: 140px;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+        .client-logo-card span {
+            font-size: 0.85rem;
+            font-weight: 700;
             color: var(--dark);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
         @keyframes scrollLogos {
             0% { transform: translateX(0); }
@@ -238,8 +253,7 @@
     <!-- TOP NAVIGATION BAR -->
     <nav>
         <div class="nav-logo">
-            <!-- Replace 'logo.jpg' with your actual logo image filename in GitHub if needed -->
-            <img src="logo.jpg" alt="Ata Food Logo" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=100&q=80'">
+            <img src="logo.jpg" alt="Ata Food Logo" onerror="this.style.display='none'">
             <span>ATA FOOD & CATERING</span>
         </div>
         <div class="nav-links">
@@ -253,8 +267,7 @@
     <!-- CINEMATIC HEADER -->
     <header>
         <div class="header-content">
-            <img src="logo.jpg" alt="Ata Food Logo" class="hero-logo" onerror="this.style.display='none'">
-            <h1>Ata Food & Catering</h1>
+            <h1>ATA FOOD & CATERING</h1>
             <p>Industrial-scale corporate catering, tier-based workforce menu structuring, and premium food supply solutions across the Kingdom of Saudi Arabia.</p>
             <div>
                 <a href="mailto:sales@atafood.de5.net" class="cta-btn">Email Inquiry</a>
@@ -267,10 +280,10 @@
         
         <!-- ABOUT US -->
         <section id="about">
-            <h2>About Ata Food & Catering</h2>
+            <h2>About ATA FOOD & CATERING</h2>
             <p class="section-subtitle">Delivering reliability, safety, and delicious nutrition to workforce projects and corporate hubs across KSA.</p>
             <p style="margin-bottom: 20px; font-size: 1.1rem;">
-                Ata Food & Catering is a premier commercial food service and catering contractor operating within Saudi Arabia, with established logistical reach spanning Riyadh, Al Majma'ah, and Sudair Industrial City. We specialize in managing complex commercial catering workflows, tier-based workforce menu structuring, contract logistics, and customized food supply proposals for multinational project teams, industrial complexes, and corporate institutions.
+                ATA FOOD & CATERING is a premier commercial food service and catering contractor operating within Saudi Arabia, with established logistical reach spanning Riyadh, Al Majma'ah, and Sudair Industrial City. We specialize in managing complex commercial catering workflows, tier-based workforce menu structuring, contract logistics, and customized food supply proposals for multinational project teams, industrial complexes, and corporate institutions.
             </p>
             <p style="font-size: 1.1rem;">
                 Our commitment revolves around uncompromising food safety standards, punctual meal delivery schedules, and nutritionally balanced menus tailored to diverse workforce requirements. From large industrial camps to executive corporate dining, we bring excellence to every plate.
@@ -297,39 +310,96 @@
             </div>
         </section>
 
-        <!-- AUTO-SCROLLING CLIENT LOGO SLIDER -->
+        <!-- AUTO-SCROLLING CLIENT LOGO SLIDER WITH ACTUAL LOGOS -->
         <section id="clients">
             <h2>Trusted by Major Enterprises in KSA</h2>
             <p class="section-subtitle">Proudly partnering with leading industrial giants, energy leaders, and project contractors across the Kingdom.</p>
             
             <div class="slider-container">
                 <div class="slider-track">
-                    <!-- First Set of Logos -->
-                    <div class="client-pill">🟢 Saudi Aramco</div>
-                    <div class="client-pill">🔵 SABIC</div>
-                    <div class="client-pill">⚪ NEOM Projects</div>
-                    <div class="client-pill">🟡 Saudi Electricity Co.</div>
-                    <div class="client-pill">🟤 Ma'aden Mining</div>
-                    <div class="client-pill">🔴 Schlumberger KSA</div>
-                    <div class="client-pill">⚫ Halliburton</div>
-                    <div class="client-pill">🔵 Baker Hughes</div>
-                    <div class="client-pill">🟢 Almarai Logistics</div>
-                    <div class="client-pill">🔴 Nesma & Partners</div>
-                    <div class="client-pill">🔵 Saipem Contracting</div>
-                    <div class="client-pill">🟠 Sinopec Engineering</div>
+                    <!-- First Set of Real Logos -->
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Saudi_Aramco_Logo.svg" alt="Saudi Aramco">
+                        <span>Saudi Aramco</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/SABIC_Logo.svg" alt="SABIC">
+                        <span>SABIC</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Neom_Logo.svg" alt="NEOM">
+                        <span>NEOM Projects</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Saudi_Electricity_Company_Logo.svg" alt="SEC">
+                        <span>Saudi Electricity Co.</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Ma%27aden_logo.svg" alt="Ma'aden">
+                        <span>Ma'aden Mining</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Schlumberger_Logo.svg" alt="Schlumberger">
+                        <span>Schlumberger KSA</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Halliburton_logo.svg" alt="Halliburton">
+                        <span>Halliburton</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Baker_Hughes_Logo.svg" alt="Baker Hughes">
+                        <span>Baker Hughes</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Almarai_Logo.svg" alt="Almarai">
+                        <span>Almarai Logistics</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Nesma_Holding_Logo.svg" alt="Nesma">
+                        <span>Nesma & Partners</span>
+                    </div>
+                    
                     <!-- Duplicate Set for Seamless Infinite Scrolling -->
-                    <div class="client-pill">🟢 Saudi Aramco</div>
-                    <div class="client-pill">🔵 SABIC</div>
-                    <div class="client-pill">⚪ NEOM Projects</div>
-                    <div class="client-pill">🟡 Saudi Electricity Co.</div>
-                    <div class="client-pill">🟤 Ma'aden Mining</div>
-                    <div class="client-pill">🔴 Schlumberger KSA</div>
-                    <div class="client-pill">⚫ Halliburton</div>
-                    <div class="client-pill">🔵 Baker Hughes</div>
-                    <div class="client-pill">🟢 Almarai Logistics</div>
-                    <div class="client-pill">🔴 Nesma & Partners</div>
-                    <div class="client-pill">🔵 Saipem Contracting</div>
-                    <div class="client-pill">🟠 Sinopec Engineering</div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Saudi_Aramco_Logo.svg" alt="Saudi Aramco">
+                        <span>Saudi Aramco</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/SABIC_Logo.svg" alt="SABIC">
+                        <span>SABIC</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Neom_Logo.svg" alt="NEOM">
+                        <span>NEOM Projects</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Saudi_Electricity_Company_Logo.svg" alt="SEC">
+                        <span>Saudi Electricity Co.</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Ma%27aden_logo.svg" alt="Ma'aden">
+                        <span>Ma'aden Mining</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Schlumberger_Logo.svg" alt="Schlumberger">
+                        <span>Schlumberger KSA</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Halliburton_logo.svg" alt="Halliburton">
+                        <span>Halliburton</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Baker_Hughes_Logo.svg" alt="Baker Hughes">
+                        <span>Baker Hughes</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Almarai_Logo.svg" alt="Almarai">
+                        <span>Almarai Logistics</span>
+                    </div>
+                    <div class="client-logo-card">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Nesma_Holding_Logo.svg" alt="Nesma">
+                        <span>Nesma & Partners</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -352,7 +422,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Ata Food & Catering. All rights reserved. | Serving Industrial & Corporate KSA.</p>
+        <p>&copy; 2026 ATA FOOD & CATERING. All rights reserved. | Serving Industrial & Corporate KSA.</p>
     </footer>
 
     <!-- Smooth Scroll Animation Script -->
@@ -371,4 +441,5 @@
     </script>
 
 </body>
+ll
 </html>
